@@ -5,7 +5,7 @@ class User extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
+        $this->load->model('User_model', 'model');
     }
 
     public function login(){
@@ -17,5 +17,10 @@ class User extends CI_Controller{
         $this->load->view('template/header_user');
         $this->load->view('user/register');
         $this->load->view('template/footer');
+    }
+    ///
+    public function get_all(){
+        $users = $this->model->get_all();
+        echo json_encode($users);
     }
 }
