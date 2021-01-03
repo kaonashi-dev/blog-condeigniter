@@ -11,7 +11,7 @@
                 <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                         </div>
                         <input class="form-control" name="name" placeholder="Nombre y apellido" type="text">
                     </div>
@@ -27,7 +27,7 @@
                 <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
                         <input class="form-control" name="email" placeholder="Correo electronico" type="email">
                     </div>
