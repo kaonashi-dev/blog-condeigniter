@@ -6,7 +6,6 @@ class User extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('User_model', 'model');
-        $this->load->library('session');
     }
 
     public function login(){

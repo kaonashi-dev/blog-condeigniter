@@ -9,7 +9,14 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link type="text/css" href="<?php echo CSS ?>argon-design-system.css" rel="stylesheet">
+    <link type="text/css" href="<?php echo CSS . 'argon-design-system.css'?>" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="<?php echo JS . 'main.js' ?>"></script>
+
+    <!-- VUE - AXIOS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <title>example</title>
 </head>

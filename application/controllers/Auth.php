@@ -26,12 +26,24 @@ class Auth extends CI_Controller
         if ($this->model->check('email', $this->input->post('email'))) {
             if ($this->model->check('username', $this->input->post('username'))) {
                 $this->model->register($userData);
-                echo "registrado :)";
+                echo json_encode([
+                    'error' => false,
+                    'msg' => "Usuario registrado",
+                    'data' => []
+                ]);
             } else {
-                echo "El username: " . $this->input->post('username') . " ya existe";
+                echo json_encode([
+                    'error' => false,
+                    'msg' => "El username: " . $this->input->post('username') . " ya existe",
+                    'data' => []
+                ]);
             }
         } else {
-            echo "El correo: " . $this->input->post('email') . " ya existe...";
+            echo json_encode([
+                'error' => false,
+                'msg' => "El correo: " . $this->input->post('email') . " ya existe...",
+                'data' => []
+            ]);
         }
     }
 }

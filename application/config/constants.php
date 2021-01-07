@@ -34,6 +34,7 @@ defined('DIR_WRITE_MODE')  OR define('DIR_WRITE_MODE', 0755);
 # ASSETS
 define('CSS', '/application/assets/css/');
 define('JS', '/application/assets/js/');
+define('VUE', '/application/assets/js/vue/');
 /*
 |--------------------------------------------------------------------------
 | File Stream Modes
