@@ -7,13 +7,13 @@
                 </div>
             </div>
             <div class="card-body px-lg-5">
-                <form @submit.prevent="register()">
+                <form @submit.prevent="register()" autocomplete="off">
                 <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                         </div>
-                        <input v-model="name" class="form-control" name="name" placeholder="Nombre y apellido" type="text">
+                        <input v-model="name" class="form-control" name="name" placeholder="Nombre y apellido" type="text" required>
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -21,7 +21,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input v-model="username" class="form-control" name="username" placeholder="Username" type="text">
+                        <input v-model="username" class="form-control" name="username" placeholder="Username" type="text" required>
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -29,7 +29,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input v-model="email" class="form-control" name="email" placeholder="Correo electronico" type="email">
+                        <input v-model="email" class="form-control" name="email" placeholder="Correo electronico" type="email" required>
                     </div>
                 </div>
                 <div class="form-group focused">

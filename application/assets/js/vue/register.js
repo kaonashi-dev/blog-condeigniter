@@ -14,8 +14,11 @@ const registerForm = {
         data.append('username', this.username);
         data.append('email', this.email);
         data.append('pass', this.pass);
+        //
         axios.post(`${ URL }auth/register`, data)
-        .then(res => console.log(res))
+        .then(res => {
+          console.log(res);
+        })
         .catch(err => console.error(err))
     },
   },

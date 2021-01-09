@@ -10,8 +10,21 @@ class Auth extends CI_Controller
 
     public function login()
     {
-        $this->model->login();
-        echo "login desde controller";
+        $dataUser = array(
+            'email' => $this->input->post('email'),
+            'pass' => $this->input->post('pass')
+        );
+        if($this->model->login($dataUser) > 0){
+            echo json_encode([
+                'status' => 'success',
+                'msg' => "Todo bien todo"
+            ]);
+        }else{
+            echo json_encode([
+                'status' => 'error',
+                'msg' => "Username y/o password incorrecto"
+            ]);
+        }
     }
 
     public function register()
@@ -27,22 +40,19 @@ class Auth extends CI_Controller
             if ($this->model->check('username', $this->input->post('username'))) {
                 $this->model->register($userData);
                 echo json_encode([
-                    'error' => false,
-                    'msg' => "Usuario registrado",
-                    'data' => []
+                    'status' => 'success',
+                    'msg' => "Usuario registrado"
                 ]);
             } else {
                 echo json_encode([
-                    'error' => false,
-                    'msg' => "El username: " . $this->input->post('username') . " ya existe",
-                    'data' => []
+                    'status' => 'error',
+                    'msg' => "El username: " . $this->input->post('username') . " ya existe"
                 ]);
             }
         } else {
             echo json_encode([
-                'error' => false,
-                'msg' => "El correo: " . $this->input->post('email') . " ya existe...",
-                'data' => []
+                'status' => 'error',
+                'msg' => "El correo: " . $this->input->post('email') . " ya existe..."
             ]);
         }
     }

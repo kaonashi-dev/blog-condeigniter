@@ -13,6 +13,8 @@
 
     <!-- JS -->
     <script src="<?php echo JS . 'main.js' ?>"></script>
+    <!-- SweetAlert -->
+    <script src="<?php echo JS . 'sweetalert2.all.min.js' ?>"></script>
 
     <!-- VUE - AXIOS -->
     <script src="https://unpkg.com/vue@next"></script>
@@ -23,9 +25,11 @@
 
 <body style="background: #cfcdd5;">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-default">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-default pt-1 pb-1">
         <div class="container">
-            <a class="navbar-brand" href="#">Default Color</a>
+            <a class="navbar-brand" href="#">
+                BLOG
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,12 +47,12 @@
 
                 <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="<?php echo site_url('user/login') ?>">
+                        <a class="nav-link nav-link-icon" href="<?php echo base_url('user/login') ?>">
                             <span class="nav-link-inner--text">INICIAR SESIÓN</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-icon" href="<?php echo site_url('user/register') ?>">
+                        <a class="nav-link nav-link-icon" href="<?php echo base_url('user/register') ?>">
                             <span class="nav-link-inner--text">REGISTRATE</span>
                         </a>
                     </li>

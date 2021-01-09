@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$config['base_url'] = 'http://127.0.0.1:5000/'; # Base Site URL
+$config['base_url'] = 'http://localhost:5000/'; # Base Site URL
 
 $config['index_page'] = 'index.php'; # Index File
 
