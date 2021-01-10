@@ -14,15 +14,21 @@ class Auth extends CI_Controller
             'email' => $this->input->post('email'),
             'pass' => $this->input->post('pass')
         );
-        if($this->model->login($dataUser) > 0){
+        $data = $this->model->login($dataUser);
+        if($data){
+            $_SESSION['id'] = $data->_id;
+            $_SESSION['name'] = $data->name;
+            $_SESSION['username'] = $data->username;
+            $_SESSION['email'] = $data->email;
+            $_SESSION['created_at'] = $data->created_at;
             echo json_encode([
                 'status' => 'success',
-                'msg' => "Todo bien todo"
+                'msg' => "BIENVENIDO"
             ]);
         }else{
             echo json_encode([
                 'status' => 'error',
-                'msg' => "Username y/o password incorrecto"
+                'msg' => "Correo y/o contraseña incorrecto"
             ]);
         }
     }

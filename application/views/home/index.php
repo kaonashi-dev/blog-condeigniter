@@ -1,3 +1,3 @@
 <h1>
-    HOLA MUNDO
+    HOLA <?php echo $_SESSION['name'] ?>
 </h1>

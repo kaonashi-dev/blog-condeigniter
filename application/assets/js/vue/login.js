@@ -15,16 +15,12 @@ const loginForm = {
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status == 'success') {
-                        Swal.fire(
-                            res.data.msg,
-                            '',
-                            'success'
-                        )
+                        location.href = `${URL}home`;
                     } else {
                         Swal.fire(
                             'Verifica la informaciòn',
                             res.data.msg,
-                            'error'
+                            'info'
                         )
                     }
                 })
