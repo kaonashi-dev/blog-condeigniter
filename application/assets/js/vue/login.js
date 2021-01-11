@@ -12,7 +12,7 @@ const loginForm = {
             data.append("pass", this.pass);
             //
             axios.post(`${URL}auth/login`, data)
-                .then((res) => {
+                .then(res => {
                     console.log(res.data);
                     if (res.data.status == 'success') {
                         location.href = `${URL}home`;
@@ -24,7 +24,7 @@ const loginForm = {
                         )
                     }
                 })
-                .catch((err) => console.error(err));
+                .catch(err => console.error(err));
         },
     },
 };

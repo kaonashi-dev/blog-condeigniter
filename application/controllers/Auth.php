@@ -62,4 +62,10 @@ class Auth extends CI_Controller
             ]);
         }
     }
+    // Cerrar sesion
+    public function logOut(){
+        session_destroy();
+        redirect(base_url("user/login"));
+        exit;
+    }
 }
