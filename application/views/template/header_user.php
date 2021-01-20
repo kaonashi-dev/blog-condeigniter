@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <title>example</title>
+    <title>BLOG</title>
 </head>
 
 <body style="background: #cfcdd5;">

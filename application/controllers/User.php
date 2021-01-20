@@ -9,13 +9,13 @@ class User extends CI_Controller{
     }
 
     public function login(){
-        $this->services->loginCheck();
+        // $this->services->loginCheck();
         $this->load->view('template/header_user');
         $this->load->view('user/login');
         $this->load->view('template/footer');
     }
     public function register(){
-        $this->services->loginCheck();
+        // $this->services->loginCheck();
         $this->load->view('template/header_user');
         $this->load->view('user/register');
         $this->load->view('template/footer');
