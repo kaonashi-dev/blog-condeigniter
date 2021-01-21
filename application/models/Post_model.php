@@ -1,6 +1,6 @@
 <?php
 
-class Auth_model extends CI_Model
+class Post_model extends CI_Model
 {
     public function __construct()
     {
@@ -10,6 +10,7 @@ class Auth_model extends CI_Model
     //
     public function new($post)
     {
-        $this->db->insert('post', $post);
+        $data = $this->db->insert('post', $post);
+        return $data;
     }
 }

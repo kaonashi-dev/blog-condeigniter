@@ -17,7 +17,7 @@ const registerForm = {
         //
         axios.post(`${ URL }auth/register`, data)
         .then(res => {
-          console.log(res);
+          location.href = `${URL}user/login`;
         })
         .catch(err => console.error(err))
     },
