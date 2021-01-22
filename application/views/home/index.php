@@ -1,5 +1,5 @@
 <div id="post">
-    <div class="col-10 mx-auto">
+    <div class="col-12 mx-auto mb-3">
         <div class="card">
             <div class="card-header p-2">
                 Crea una publicaciòn
@@ -23,7 +23,30 @@
             </div>
         </div>
     </div>
+    <!--  -->
+    <div v-for="post in posts" class="col-10 mt-2 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-10">
+                        <h3>{{post.title}}</h3>
+                    </div>
+                    <div class="col 2">
+                        {{post.user}}
+                    </div>
+                </div>
+                <p>
+                    {{post.content}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div v-if="!posts.length" class="col-12 text-center">
+        <p class="text-danger">No nay publicaiones</p>
+    </div>
 </div>
 
+
+
 <!--  -->
-<script src="<?php  echo VUE . 'post.js' ?>"></script>
+<script src="<?php echo VUE . 'post.js' ?>"></script>

@@ -3,6 +3,7 @@ const post = {
         return {
             title: "",
             content: "",
+            posts: []
         };
     },
     methods: {
@@ -13,14 +14,13 @@ const post = {
             //
             axios.post(`${URL}post/create`, data)
                 .then(res => {
-                    console.log(res.data);
                     if (res.data.status) {
                         console.log('todo va bien');
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',
                             showConfirmButton: false,
-                            timer: 3000,
+                            timer: 2000,
                             timerProgressBar: true,
                             didOpen: (toast) => {
                                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -43,7 +43,18 @@ const post = {
                 })
                 .catch(err => console.error(err));
         },
+        getAll() {
+            axios.get(`${URL}post/get-all`)
+                .then(res => {
+                    console.log(res);
+                    this.posts = res.data;
+                })
+                .catch(err => console.log(err))
+        }
     },
+    mounted() {
+        this.getAll();
+    }
 };
 
 Vue.createApp(post).mount("#post");

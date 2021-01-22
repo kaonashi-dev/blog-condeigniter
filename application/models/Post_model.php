@@ -13,4 +13,12 @@ class Post_model extends CI_Model
         $data = $this->db->insert('post', $post);
         return $data;
     }
+    public function get_all(){
+        $this->db->select('*');
+        $this->db->from('post');
+        $this->db->join('user', 'user._id = post.user');
+        $this->db->select('user.username');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

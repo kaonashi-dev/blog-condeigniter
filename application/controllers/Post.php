@@ -29,4 +29,19 @@ class Post extends CI_Controller{
             'msg' => $message
         ]);
     }
+    ///
+    public function get_all(){
+        $data = array();
+        $posts = $this->model->get_all();
+        foreach($posts as $post){
+            $data[] = array(
+                'id' => $post->_id,
+                'title' => $post->title,
+                'content' => $post->content,
+                'user' => $post->username,
+                'date' => $post->created_at,
+            );
+        }
+        echo json_encode($data);
+    }
 }

@@ -13,7 +13,6 @@ const loginForm = {
             //
             axios.post(`${URL}auth/login`, data)
                 .then(res => {
-                    console.log(res.data);
                     if (res.data.status == 'success') {
                         location.href = `${URL}home`;
                     } else {
