@@ -33,6 +33,8 @@ const post = {
                         })
                         this.title = '';
                         this.content = '';
+                        this.post = [];
+                        this.getAll();
                     } else {
                         Swal.fire(
                             'Verifica la informaciòn',
@@ -46,10 +48,22 @@ const post = {
         getAll() {
             axios.get(`${URL}post/get-all`)
                 .then(res => {
-                    console.log(res);
                     this.posts = res.data;
                 })
                 .catch(err => console.log(err))
+        },
+        deletePost(id) {
+            const data = new FormData();
+            data.append('post', id);
+            axios.post(`${URL}post/delete`, data)
+                .then(res => {
+                    console.log(res);
+                    if (res.data.status) {
+                        this.post = [];
+                        this.getAll();
+                    }
+                })
+                .catch(err => console.log(err));
         }
     },
     mounted() {

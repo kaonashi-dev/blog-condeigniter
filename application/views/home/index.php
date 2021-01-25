@@ -38,6 +38,10 @@
                 <p>
                     {{post.content}}
                 </p>
+                <div class="row">
+                    <button type="button" class="btn btn-sm btn-info">editar</button>
+                    <button @click="deletePost(post.id)" type="button" class="btn btn-sm btn-danger">eliminar</button>
+                </div>
             </div>
         </div>
     </div>

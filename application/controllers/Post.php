@@ -44,4 +44,12 @@ class Post extends CI_Controller{
         }
         echo json_encode($data);
     }
+    ///
+    public function delete(){
+        $post = $_POST["post"];
+        $response = $this->model->delete($post);
+        echo json_encode([
+            'status' => $response
+        ]);
+    }
 }
