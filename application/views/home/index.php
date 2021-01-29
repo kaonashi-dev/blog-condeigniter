@@ -39,7 +39,7 @@
                     {{post.content}}
                 </p>
                 <div class="row">
-                    <button type="button" class="btn btn-sm btn-info">editar</button>
+                    <a :href="URL + 'posts/edit/' + post.id" class="btn btn-sm btn-info">editar</a>
                     <button @click="deletePost(post.id)" type="button" class="btn btn-sm btn-danger">eliminar</button>
                 </div>
             </div>
@@ -49,8 +49,6 @@
         <p class="text-danger">No nay publicaiones</p>
     </div>
 </div>
-
-
 
 <!--  -->
 <script src="<?php echo VUE . 'post.js' ?>"></script>

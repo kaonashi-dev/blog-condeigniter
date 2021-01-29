@@ -4,7 +4,6 @@ const post = {
             URL,
             title: "",
             content: "",
-            posts: []
         };
     },
     methods: {
@@ -46,31 +45,7 @@ const post = {
                 })
                 .catch(err => console.error(err));
         },
-        getAll() {
-            axios.get(`${URL}post/get-all`)
-                .then(res => {
-                    console.log(res.data);
-                    this.posts = res.data;
-                })
-                .catch(err => console.log(err))
-        },
-        deletePost(id) {
-            const data = new FormData();
-            data.append('post', id);
-            axios.post(`${URL}post/delete`, data)
-                .then(res => {
-                    console.log(res);
-                    if (res.data.status) {
-                        this.post = [];
-                        this.getAll();
-                    }
-                })
-                .catch(err => console.log(err));
-        }
     },
-    mounted() {
-        this.getAll();
-    }
 };
 
-Vue.createApp(post).mount("#post");
+Vue.createApp(post).mount("#edit-post");
