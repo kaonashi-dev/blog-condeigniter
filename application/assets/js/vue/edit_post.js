@@ -7,34 +7,25 @@ const post = {
         };
     },
     methods: {
-        create() {
+        get() {
+            const postId = document.getElementById('post-id').value;
+            axios.get(`${URL}post/get/${postId}`)
+                .then(res => {
+                    this.title = res.data.title;
+                    this.content = res.data.content;
+                })
+                .catch(err => console.error(err));
+        },
+        update() {
             const data = new FormData();
             data.append('title', this.title);
             data.append('content', this.content);
+            data.append('postId', document.getElementById('post-id').value);
             //
-            axios.post(`${URL}post/create`, data)
+            axios.post(`${URL}post/edit-post`, data)
                 .then(res => {
                     if (res.data.status) {
-                        console.log('todo va bien');
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer)
-                                toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            }
-                        })
-                        Toast.fire({
-                            icon: 'success',
-                            title: res.data.msg
-                        })
-                        this.title = '';
-                        this.content = '';
-                        this.post = [];
-                        this.getAll();
+                        location.href = `${this.URL}home`
                     } else {
                         Swal.fire(
                             'Verifica la informaciòn',
@@ -46,6 +37,9 @@ const post = {
                 .catch(err => console.error(err));
         },
     },
+    mounted() {
+        this.get();
+    }
 };
 
 Vue.createApp(post).mount("#edit-post");

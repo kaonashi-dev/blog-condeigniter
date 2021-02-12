@@ -30,6 +30,13 @@ class Post_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function update($data, $id)
+    {
+        $this->db->set($data);
+        $this->db->where('_id', $id);
+        $query = $this->db->update('post');
+        return $query;
+    }
     public function delete($id)
     {
         $this->db->where('_id', $id);

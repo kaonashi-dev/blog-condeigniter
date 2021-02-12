@@ -31,7 +31,17 @@ class Post extends CI_Controller
             'msg' => $message
         ]);
     }
-    ///
+    public function get($postId)
+    {
+        $post = $this->model->get($postId);
+        $data = array(
+            'id' => $postId,
+            'title' => $post->title,
+            'content' => $post->content,
+            'created_at' => $post->created_at
+        );
+        echo json_encode($data);
+    }
     public function get_all()
     {
         $data = array();
@@ -48,7 +58,16 @@ class Post extends CI_Controller
         }
         echo json_encode($data);
     }
-    ///
+    public function edit_post()
+    {
+        $data = array(
+            'title' => $_POST['title'],
+            'content' => $_POST['content']
+        );
+        $id = $_POST['postId'];
+        $status = ($this->model->update($data, $id)) ? true : false;
+        echo json_encode(["status" => $status]);
+    }
     public function delete()
     {
         $post = $_POST["post"];
@@ -61,15 +80,8 @@ class Post extends CI_Controller
     // views
     public function edit($postId)
     {
-        $post = $this->model->get($postId);
-        $data = array(
-            'id' => $postId,
-            'title' => $post->title,
-            'content' => $post->content,
-            'created_at' => $post->created_at
-        );
-        //    
-        $this->load->view('template/header_user');
+        $data = array('id' => $postId);
+        $this->load->view('template/header');
         $this->load->view('post/edit', $data);
         $this->load->view('template/footer');
     }

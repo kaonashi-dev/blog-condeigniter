@@ -1,3 +1,4 @@
+<input type="hidden" id="post-id" value="<?php echo $id ?>">
 <div id="edit-post">
     <div class="col-12 mx-auto mb-3">
         <div class="card">
@@ -5,7 +6,7 @@
                 Editar tu publicaciòn
             </div>
             <div class="card-body">
-                <form @submit.prevent="edit()" autocomplete="off">
+                <form @submit.prevent="update()" autocomplete="off">
                     <div class="row">
                         <div class="col-12 mb-3">
                             <input v-model="title" type="text" class="form-control" placeholder="Titulo" required>
@@ -16,7 +17,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col text-right">
-                            <button class="btn btn-primary" type="submit">EDITAR</button>
+                            <button class="btn btn-primary" type="submit">Actualizar</button>
                         </div>
                     </div>
                 </form>

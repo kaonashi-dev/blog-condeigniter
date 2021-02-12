@@ -28,18 +28,21 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-9">
                         <h3>{{post.title}}</h3>
                     </div>
-                    <div class="col 2">
-                        {{post.user}}
+                    <div class="col-3 d-flex">
+                        <a href="#!" class="avatar avatar-xl rounded-circle">
+                            <img alt="blog" src="<?php echo base_url(IMG . 'undraw_male_avatar.svg') ?>">
+                        </a>
+                        <p class="mt-2"> - {{post.user}}</p>
                     </div>
                 </div>
                 <p>
                     {{post.content}}
                 </p>
                 <div class="row">
-                    <a :href="URL + 'posts/edit/' + post.id" class="btn btn-sm btn-info">editar</a>
+                    <a :href="URL + 'post/edit/' + post.id" class="btn btn-sm btn-info">editar</a>
                     <button @click="deletePost(post.id)" type="button" class="btn btn-sm btn-danger">eliminar</button>
                 </div>
             </div>

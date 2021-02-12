@@ -16,7 +16,6 @@ const post = {
             axios.post(`${URL}post/create`, data)
                 .then(res => {
                     if (res.data.status) {
-                        console.log('todo va bien');
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',
